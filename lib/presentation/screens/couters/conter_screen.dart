@@ -6,6 +6,12 @@ class CouterScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        title: const Text('counter Screen'),
+        actions: [
+
+        ]),
       floatingActionButton: FloatingActionButton(
         onPressed: (){},
         child: const Icon(Icons.plus_one),
