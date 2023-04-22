@@ -1,4 +1,5 @@
-import 'package:app_contador/presentation/screens/couters/conter_screen.dart';
+
+import 'package:app_contador/presentation/screens/couters/couter_functions_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() => runApp(const MyApp());
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
         colorSchemeSeed: Colors.amber
       ),
       title: 'Material App',
-      home: const CouterScreen(),
+      home: const CouterFunctionsScreen(),
     );
   }
 }
