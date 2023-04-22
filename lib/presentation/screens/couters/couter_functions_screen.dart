@@ -28,13 +28,34 @@ class _CouterFunctionsScreenState extends State<CouterFunctionsScreen> {
       floatingActionButton: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
-           ButtonCounter(icon: Icons.refresh_rounded),
-           const SizedBox(height: 15,),
-          ButtonCounter(icon: Icons.plus_one,),
-          const SizedBox(height: 15,),
-          ButtonCounter(icon: Icons.exposure_minus_1_outlined),
-          
-          
+          ButtonCounter(
+            icon: Icons.refresh_rounded,
+            function: () {
+              clickCouter = 0;
+              setState(() {});
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          ButtonCounter(
+            icon: Icons.plus_one,
+            function: () {
+              clickCouter++;
+              setState(() {});
+            },
+          ),
+          const SizedBox(
+            height: 15,
+          ),
+          ButtonCounter(
+            icon: Icons.exposure_minus_1_outlined,
+            function: () {
+              if(clickCouter==0)return;
+              clickCouter--;
+              setState(() {});
+            },
+          ),
         ],
       ),
       body: Center(
@@ -68,21 +89,21 @@ class _CouterFunctionsScreenState extends State<CouterFunctionsScreen> {
 
 class ButtonCounter extends StatelessWidget {
   final IconData icon;
-  
+  final VoidCallback function;
 
   const ButtonCounter({
-    super.key, 
+    super.key,
     required this.icon,
+    required this.function,
   });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      elevation: 5,
       shape: const StadiumBorder(),
-      onPressed: () {
-      
-      },
-      child:  Icon(icon),
+      onPressed: function,
+      child: Icon(icon),
     );
   }
 }
